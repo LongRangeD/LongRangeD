@@ -1,0 +1,5 @@
+[centos_hosts]
+34.229.0.129
+
+[rhel_hosts]
+centosvm01
