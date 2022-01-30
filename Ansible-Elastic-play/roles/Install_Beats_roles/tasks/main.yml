@@ -6,9 +6,14 @@
         state: directory
         
     - name: Copying Filebeat and Metricbeat Installation binaires to the servers.
-      ansible.builtin.copy:
-        src: beats.tar.gz
-        dest: /apps/elastic/beats.tar.gz
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      with_items:
+        - src: beats.tar.gz
+          dest: /apps/elastic/beats.tar.gz
+        - src: elk_startup.sh
+          dest: /apps/elastic/elk_startup.sh
         
     - name: Extract the Filebeat and Metricbeat binaires.      
       unarchive:
@@ -22,18 +27,4 @@
         owner: "{{ Elastic_username }}"
         group: "{{ Elastic_username }}"
         mode: 0750
-        recurse: yes
-
-    - name: Configure Filebeat and Metricbeat to run at boot.
-      ansible.builtin.lineinfile:
-        path: /apps/WF_Automation/scripts/welogic/weblogic_start
-        regexp: '^BEATS'
-        line: 'mwswls,/apps/elastic/elk_startup.sh ; sleep 30,'
-        
-    - name: Change file ownership, group and permissions for WF_Automation Directory
-      ansible.builtin.file:
-        path: /apps/WF_Automation
-        owner: root
-        group: root
-        mode: 0755
         recurse: yes

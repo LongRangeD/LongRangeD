@@ -1,0 +1,28 @@
+---
+
+    - name: Creating WFA directory.
+      file:
+        path: /apps/WF_Automation/scripts/welogic/
+        state: directory
+        
+    - name: Copying Filebeat and Metricbeat Installation binaires to the servers.
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      with_items:
+        - src: weblogic_start
+          dest: /apps/WF_Automation/scripts/welogic/weblogic_start
+
+    - name: Configure WFA for Filebeat and Metricbeat to run at boot.
+      ansible.builtin.lineinfile:
+        path: /apps/WF_Automation/scripts/welogic/weblogic_start
+        regexp: '^BEATS'
+        line: 'mwswls,/apps/elastic/elk_startup.sh ; sleep 30,'
+        
+    - name: Change file ownership, group and permissions for WF_Automation Directory
+      ansible.builtin.file:
+        path: /apps/WF_Automation
+        owner: root
+        group: root
+        mode: 0755
+        recurse: yes
