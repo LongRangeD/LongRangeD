@@ -1,9 +1,9 @@
 [app]
-192.162.0.200
-[db]
 192.162.0.201
-[es]
+[db]
 192.162.0.202
+[es]
+192.162.0.203
 
 # Group has all the servers
 [multi:children]
@@ -13,8 +13,8 @@ es
 
 # Varibles for all the servers
 [multi:vars]
-192.162.0.200 ansible_host=127.0.0.1 ansible_port=2222
-192.162.0.201 ansible_host=127.0.0.1 ansible_port=2200
-192.162.0.202 ansible_host=127.0.0.1 ansible_port=2201
+192.162.0.201 ansible_host=127.0.0.1 ansible_port=2222
+192.162.0.202 ansible_host=127.0.0.1 ansible_port=2200
+192.162.0.203 ansible_host=127.0.0.1 ansible_port=2201
 ansible_user=vagrant
 ansible_ssh_private_key_file=~/.ssh/insecure_private_key
