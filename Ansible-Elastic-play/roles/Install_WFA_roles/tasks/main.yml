@@ -6,16 +6,13 @@
         state: directory
         
     - name: Copying Filebeat and Metricbeat Installation binaires to the servers.
-      copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
+      ansible.builtin.copy:
+        src: weblogic_start
+        dest: /apps/WF_Automation/scripts/welogic/weblogic_start
         owner: root
         group: root
         mode: 0755
         recurse: yes
-      with_items:
-        - src: weblogic_start
-          dest: /apps/WF_Automation/scripts/welogic/weblogic_start
 
     - name: Configure WFA for Filebeat and Metricbeat to run at boot.
       ansible.builtin.lineinfile:
