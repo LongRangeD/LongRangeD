@@ -19,8 +19,8 @@
     - name: Change file ownership, group and permissions for Elastic Directory.
       ansible.builtin.file:
         path: /apps/elastic
-        owner: mwswls
-        group: mwswls
+        owner: "{{ Elastic_username }}"
+        group: "{{ Elastic_username }}"
         mode: 0750
         recurse: yes
 
