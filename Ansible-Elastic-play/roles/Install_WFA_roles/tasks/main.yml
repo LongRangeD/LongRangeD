@@ -9,6 +9,10 @@
       copy:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
+        owner: root
+        group: root
+        mode: 0755
+        recurse: yes
       with_items:
         - src: weblogic_start
           dest: /apps/WF_Automation/scripts/welogic/weblogic_start
@@ -19,10 +23,10 @@
         regexp: '^BEATS'
         line: 'mwswls,/apps/elastic/elk_startup.sh ; sleep 30,'
         
-    - name: Change file ownership, group and permissions for WF_Automation Directory
-      ansible.builtin.file:
-        path: /apps/WF_Automation
-        owner: root
-        group: root
-        mode: 0755
-        recurse: yes
+    # - name: Change file ownership, group and permissions for WF_Automation Directory
+    #   ansible.builtin.file:
+    #     path: /apps/WF_Automation
+    #     owner: root
+    #     group: root
+    #     mode: 0755
+    #     recurse: yes

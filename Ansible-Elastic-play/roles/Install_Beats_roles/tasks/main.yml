@@ -9,6 +9,11 @@
       copy:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
+        path: /apps/elastic
+        owner: "{{ Elastic_username }}"
+        group: "{{ Elastic_username }}"
+        mode: 0750
+        recurse: yes
       with_items:
         - src: beats.tar.gz
           dest: /apps/elastic/beats.tar.gz
@@ -21,10 +26,10 @@
         dest: /apps/elastic/
         remote_src: True
 
-    - name: Change file ownership, group and permissions for Elastic Directory.
-      ansible.builtin.file:
-        path: /apps/elastic
-        owner: "{{ Elastic_username }}"
-        group: "{{ Elastic_username }}"
-        mode: 0750
-        recurse: yes
+    # - name: Change file ownership, group and permissions for Elastic Directory.
+    #   ansible.builtin.file:
+    #     path: /apps/elastic
+    #     owner: "{{ Elastic_username }}"
+    #     group: "{{ Elastic_username }}"
+    #     mode: 0750
+    #     recurse: yes
