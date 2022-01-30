@@ -25,11 +25,3 @@
         src: /apps/elastic/beats.tar.gz
         dest: /apps/elastic/
         remote_src: True
-
-    # - name: Change file ownership, group and permissions for Elastic Directory.
-    #   ansible.builtin.file:
-    #     path: /apps/elastic
-    #     owner: "{{ Elastic_username }}"
-    #     group: "{{ Elastic_username }}"
-    #     mode: 0750
-    #     recurse: yes
