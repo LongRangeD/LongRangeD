@@ -1,0 +1,9 @@
+---
+
+    - name: Starting Filebeat and Metricbeat Agents.
+      shell: /apps/elastic/elk_startup.sh > /tmp/Beats_Startup.txt ; cat /tmp/Beats_Startup.txt ; id
+      args:
+        executable: /bin/bash
+      register: foo
+      
+    - debug: var=foo['stdout_lines']

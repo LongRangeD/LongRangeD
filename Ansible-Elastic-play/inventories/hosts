@@ -1,0 +1,18 @@
+#AS
+[app]
+192.162.0.200 ansible_host=127.0.0.1 ansible_port=2222
+#DB
+[db]
+192.162.0.201 ansible_host=127.0.0.1 ansible_port=2200
+[es]
+192.162.0.202 ansible_host=127.0.0.1 ansible_port=2201
+
+# Group has all the servers
+[multi:children]
+app
+db
+
+# Varibles for all the servers
+[multi:vars]
+ansible_user=vagrant
+ansible_ssh_private_key_file=~/.ssh/insecure_private_key

@@ -1,0 +1,21 @@
+---
+
+- hosts: db
+  become: true
+  become_user: root
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: Install_Beats_roles
+        tasks_from: main.yml
+        
+- hosts: db
+  become: true
+  become_user: mwswls
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: Start_Beats_Agent_roles
+        tasks_from: main.yml
+      
+---
