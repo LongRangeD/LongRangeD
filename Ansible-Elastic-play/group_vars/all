@@ -1,4 +1,5 @@
 # Here are variables related to the Elastic
 
+#This will be called when executing the Install_Beats_roles
 Elastic_username: mwswls
 
