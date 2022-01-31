@@ -1,17 +1,17 @@
  
-   - name: Add a new user named devops
+   - name: Add a new user named mwswls
      user:
-          name=devops
-          password={{ devops_password }}
+          name=mwswls
+          password=Long@123
  
-   - name: Add devops user to the sudoers
+   - name: Add mwswls user to the sudoers
      copy:
-          dest: "/etc/sudoers.d/devops"
-          content: "devops  ALL=(ALL)  NOPASSWD: ALL"
+          dest: "/etc/sudoers.d/mwswls"
+          content: "mwswls  ALL=(ALL)  NOPASSWD: ALL"
  
    - name: Deploy SSH Key
-     authorized_key: user=devops
-                     key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+     authorized_key: user=mwswls
+                     key="{{ lookup('file', 'id_rsa.pub') }}"
                      state=present
                      
    - name: Disable Password Authentication
