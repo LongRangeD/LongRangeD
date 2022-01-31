@@ -1,0 +1,1 @@
+mwswls,cd /apps/LOB/Domain ; /apps/weblogic/current/bin/wlst /apps/weblogic/current/bin/recycle.py stop admin,

@@ -1,2 +1,2 @@
 root,sleep 60,
-mwswls,cd /apps/GTS/Domain ; /apps/wellsulits/current/bin/wlst /apps/wellsulits/current/bin/recycle.py admin admin_server_11102 yes,
+mwswls,cd /apps/LOB/Domain ; /apps/weblogic/current/bin/wlst /apps/weblogic/current/bin/recycle.py start admin admin_server_11102 yes,

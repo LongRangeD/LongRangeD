@@ -1,5 +1,17 @@
 # Here are variables related to the Elastic
 
-#This will be called when executing the Install_Beats_roles
+###################################### ELastic ######################################
 
 Elastic_username: mwswls
+Elastic_home: /apps/elastic
+Elastic_binaires: beats.tar.gz
+Elastic_start_script: elk_Startup.sh
+Elastic_stop_script: elk_shutdown.sh
+Elastic_Startup_log: /tmp/Beats_Startup.log
+
+######################################## WFA ######################################## 
+
+WFA_home: /apps/WF_Automation
+WFA_product: weblogic
+WFA_start_script: weblogic_start
+WFA_stop_script: weblogic_stop

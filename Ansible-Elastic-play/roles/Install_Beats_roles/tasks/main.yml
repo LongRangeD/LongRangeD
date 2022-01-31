@@ -2,7 +2,7 @@
 
     - name: Creating Elastic directory.
       file:
-        path: /apps/elastic/
+        path: "{{ Elastic_home }}"
         state: directory
         
     - name: Copying Filebeat and Metricbeat Installation binaires to the servers.
@@ -10,20 +10,22 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
       with_items:
-        - src: beats.tar.gz
-          dest: /apps/elastic/beats.tar.gz
-        - src: elk_startup.sh
-          dest: /apps/elastic/elk_startup.sh
+        - src: "{{ Elastic_binaires }}"
+          dest: "{{ Elastic_home }}/{{ Elastic_binaires }}"
+        - src: "{{ Elastic_start_script }}"
+          dest: "{{ Elastic_home }}/{{ Elastic_start_script }}"
+        - src: "{{ Elastic_stop_script }}"
+          dest: "{{ Elastic_home }}/{{ Elastic_stop_script }}"
         
     - name: Extract the Filebeat and Metricbeat binaires.      
       unarchive:
-        src: /apps/elastic/beats.tar.gz
-        dest: /apps/elastic/
+        src: "{{ Elastic_home }}/{{ Elastic_binaires }}"
+        dest: "{{ Elastic_home }}"
         remote_src: True
 
     - name: Change file ownership, group and permissions for Elastic Directory
       ansible.builtin.file:
-        path: /apps/elastic
+        path: "{{ Elastic_home }}"
         owner: "{{ Elastic_username }}"
         group: "{{ Elastic_username }}"
         mode: 0750

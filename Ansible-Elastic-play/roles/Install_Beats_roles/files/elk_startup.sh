@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello World"
+echo "Filebeat and Metricbeat Agent is Up and Running"
