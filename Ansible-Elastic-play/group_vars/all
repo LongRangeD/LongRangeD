@@ -5,7 +5,7 @@
 Elastic_username: mwswls
 Elastic_home: /apps/elastic
 Elastic_binaires: beats.tar.gz
-Elastic_start_script: elk_Startup.sh
+Elastic_start_script: elk_startup.sh
 Elastic_stop_script: elk_shutdown.sh
 Elastic_Startup_log: /tmp/Beats_Startup.log
 
