@@ -20,7 +20,7 @@
         
 - hosts: multi
   become: true
-  become_user: mwswls
+  become_user: "{{ Elastic_username }}"
   gather_facts: false
   tasks:
     - include_role:
