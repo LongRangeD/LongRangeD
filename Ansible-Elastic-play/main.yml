@@ -1,6 +1,6 @@
 ---
 
-- hosts: multi
+- hosts: app
   become: true
   become_user: root
   gather_facts: false
@@ -9,7 +9,7 @@
         name: Install_Beats_roles
         tasks_from: main.yml
 
-- hosts: multi
+- hosts: app
   become: true
   become_user: root
   gather_facts: false
@@ -18,7 +18,7 @@
         name: Install_WFA_roles
         tasks_from: main.yml
         
-- hosts: multi
+- hosts: app
   become: true
   become_user: "{{ Elastic_username }}"
   gather_facts: false
