@@ -31,7 +31,7 @@
     - name: Test filebeat configuration and backend output. 
       shell:
       args:
-        cmd: ./filbeat test config ; ./filebeat test output ; 
+        cmd: ./filebeat test config ; ./filebeat test output ; 
         chdir: "{{ Filebeat_location }}"
         executable: /bin/bash
       register: Filebeat_out
