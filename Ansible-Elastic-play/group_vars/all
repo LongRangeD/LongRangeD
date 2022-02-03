@@ -10,10 +10,7 @@ Elastic_stop_script: elk_shutdown.sh
 Elastic_Startup_log: /tmp/Beats_Startup.log
 Filebeat_configuration_file: filebeat.yml
 Filebeat_location: /apps/elastic/filebeat/
-Elasticsearch_host: 192.168.1.10
-Elasticsearch_port: 9200
-Kibana_host: 192.168.1.10
-Kibana_port: 5601
+
 ######################################## WFA ######################################## 
 
 WFA_home: /apps/WF_Automation
