@@ -4,7 +4,7 @@
       file:
         path: "{{ Elastic_home }}"
         state: directory
-        
+
     - name: Copying Filebeat and Metricbeat Installation binaires to the servers.
       copy:
         src: "{{ item.src }}"

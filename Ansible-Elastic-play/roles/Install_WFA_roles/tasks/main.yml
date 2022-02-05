@@ -4,6 +4,32 @@
       file:
         path: "{{ WFA_home }}/data/{{ WFA_product }}/"
         state: directory
+
+    - name: "Searching for a String elk_startup"
+      lineinfile:
+        path: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_start_script }}"
+        line: "elk_startup"
+        state: present
+      check_mode: True
+      register: presence_startup
+      failed_when: presence_startup is changed 
+
+    - name: "If elk_startup present in the file"
+      debug: msg="elk_startup is enabled in WFA"
+      when: presence_startup is not changed
+
+    - name: "Searching for a String elk_shutdown"
+      lineinfile:
+        path: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_stop_script }}"
+        line: "elk_shutdown"
+        state: present
+      check_mode: True
+      register: presence_shutdown
+      failed_when: presence_shutdown is changed 
+
+    - name: "If elk_shutdown present in the file"
+      debug: msg="elk_shutdown is enabled in WFA"
+      when: presence_shutdown is not changed
         
     - name: Copying WFA Installation Configuration to the servers.
       copy:
