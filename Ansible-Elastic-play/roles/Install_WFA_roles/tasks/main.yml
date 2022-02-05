@@ -9,7 +9,7 @@
       lineinfile:
         path: /apps/WF_Automation/data/weblogic/weblogic_start
         line: "elk_startup"
-      check_mode: False
+      check_mode: True
       register: presence
       failed_when: presence.changed
 
