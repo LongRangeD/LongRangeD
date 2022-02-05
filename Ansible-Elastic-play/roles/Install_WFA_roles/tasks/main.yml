@@ -4,15 +4,15 @@
       file:
         path: "{{ WFA_home }}/data/{{ WFA_product }}/"
         state: directory
-            
+
     - name: Copying WFA Installation Configuration to the servers.
       copy:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
       with_items:
-        - src: "{{ WFA_start_script }}"
+        - src: weblogic_start.j2
           dest: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_start_script }}"
-        - src: "{{ WFA_stop_script }}"
+        - src: weblogic_stop.j2
           dest: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_stop_script }}"
 
     - name: Configure WFA for Filebeat and Metricbeat for start script  to run at boot.
