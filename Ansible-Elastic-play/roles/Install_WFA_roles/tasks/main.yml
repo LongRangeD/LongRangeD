@@ -9,10 +9,9 @@
       lineinfile:
         path: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_start_script }}"
         line: "elk_startup"
-        state: present
-      check_mode: False
+      check_mode: True
       register: presence
-      failed_when: presence is changed 
+      failed_when: presence.changed 
 
     - name: "If elk_startup present in the file"
       debug: msg="elk_startup is enabled in WFA"
@@ -22,10 +21,9 @@
       lineinfile:
         path: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_stop_script }}"
         line: "elk_shutdown"
-        state: present
-      check_mode: False
+      check_mode: True
       register: presence
-      failed_when: presence is changed 
+      failed_when: presence.changed
 
     - name: "If elk_shutdown present in the file"
       debug: msg="elk_shutdown is enabled in WFA"
