@@ -10,7 +10,7 @@
         path: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_start_script }}"
         line: "elk_startup"
         state: present
-      check_mode: True
+      check_mode: False
       register: presence_startup
       failed_when: presence_startup is changed 
 
