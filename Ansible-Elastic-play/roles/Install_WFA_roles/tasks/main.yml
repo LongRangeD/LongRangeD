@@ -23,7 +23,7 @@
         path: "{{ WFA_home }}/data/{{ WFA_product }}/{{ WFA_stop_script }}"
         line: "elk_shutdown"
         state: present
-      check_mode: True
+      check_mode: False
       register: presence
       failed_when: presence is changed 
 
