@@ -24,6 +24,8 @@
       check_mode: True
       register: presence
       failed_when: presence.changed
+    - debug: var=presence.changed['stdout_lines']
+    - debug: var=presence['stdout_lines']
 
     - name: "If elk_shutdown present in the file"
       debug: msg="elk_shutdown is enabled in WFA"
