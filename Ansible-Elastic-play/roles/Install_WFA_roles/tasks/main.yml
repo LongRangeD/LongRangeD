@@ -9,9 +9,12 @@
       lineinfile:
         path: /apps/WF_Automation/data/weblogic/weblogic_start
         line: "elk_startup"
-      check_mode: True
+      check_mode: False
       register: presence
-      failed_when: presence.changed 
+      failed_when: presence.changed
+
+    - debug: var=presence.changed['stdout_lines']
+    - debug: var=presence['stdout_lines']
 
     - name: "If elk_startup present in the file"
       debug: msg="elk_startup is enabled in WFA"
@@ -21,7 +24,7 @@
       lineinfile:
         path: /apps/WF_Automation/data/weblogic/weblogic_stop
         line: "elk_shutdown"
-      check_mode: False
+      check_mode: True
       register: presence
       failed_when: presence.changed
     - debug: var=presence.changed['stdout_lines']
