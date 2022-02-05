@@ -5,34 +5,34 @@
         path: "{{ WFA_home }}/data/{{ WFA_product }}/"
         state: directory
 
-    # - name: "Searching for a String elk_startup"
-    #   lineinfile:
-    #     path: /apps/WF_Automation/data/weblogic/weblogic_start
-    #     line: "elk_startup"
-    #   check_mode: False
-    #   register: presence
-    #   failed_when: presence.changed
+    - name: "Searching for a String elk_startup"
+      lineinfile:
+        path: /apps/WF_Automation/data/weblogic/weblogic_start
+        line: "elk_startup"
+      check_mode: False
+      register: presence
+      failed_when: presence.changed
 
-    # - debug: var=presence.changed['stdout_lines']
-    # - debug: var=presence['stdout_lines']
+    - debug: var=presence.changed['stdout_lines']
+    - debug: var=presence['stdout_lines']
 
-    # - name: "If elk_startup present in the file"
-    #   debug: msg="elk_startup is enabled in WFAA"
-    #   when: presence is not changed
+    - name: "If elk_startup present in the file"
+      debug: msg="elk_startup is enabled in WFA"
+      when: presence is not changed
 
-    # - name: "Searching for a String elk_shutdown"
-    #   lineinfile:
-    #     path: /apps/WF_Automation/data/weblogic/weblogic_stop
-    #     line: "elk_shutdown"
-    #   check_mode: True
-    #   register: presence
-    #   failed_when: presence.changed
-    # - debug: var=presence.changed['stdout_lines']
-    # - debug: var=presence['stdout_lines']
+    - name: "Searching for a String elk_shutdown"
+      lineinfile:
+        path: /apps/WF_Automation/data/weblogic/weblogic_stop
+        line: "elk_shutdown"
+      check_mode: True
+      register: presence
+      failed_when: presence.changed
+    - debug: var=presence.changed['stdout_lines']
+    - debug: var=presence['stdout_lines']
 
-    # - name: "If elk_shutdown present in the file"
-    #   debug: msg="elk_shutdown is enabled in WFA"
-    #   when: presence is not changed
+    - name: "If elk_shutdown present in the file"
+      debug: msg="elk_shutdown is enabled in WFA"
+      when: presence is not changed
         
     - name: Copying WFA Installation Configuration to the servers.
       copy:
