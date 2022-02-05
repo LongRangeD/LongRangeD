@@ -17,7 +17,7 @@
     # - debug: var=presence['stdout_lines']
 
     # - name: "If elk_startup present in the file"
-    #   debug: msg="elk_startup is enabled in WFA"
+    #   debug: msg="elk_startup is enabled in WFAA"
     #   when: presence is not changed
 
     # - name: "Searching for a String elk_shutdown"
