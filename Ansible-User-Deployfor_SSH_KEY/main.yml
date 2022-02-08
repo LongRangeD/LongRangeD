@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: app
   become: true
   become_user: root
   gather_facts: false
