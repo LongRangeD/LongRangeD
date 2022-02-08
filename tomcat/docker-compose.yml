@@ -1,0 +1,42 @@
+version: '3'
+services:
+  portal:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ${PWD}/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - tomcatcluster1:tomcat1
+      - tomcatcluster2:tomcat2
+      - tomcatcluster3:tomcat3
+    depends_on:
+      - tomcatcluster1
+      - tomcatcluster2
+      - tomcatcluster3
+  tomcatcluster1:
+    container_name: tomcatcluster1
+    image: 'tomcat_custom_imgv1'
+    ports:
+      - "10001:10080"
+    expose:
+      - "10001"
+  tomcatcluster2:
+    container_name: tomcatcluster2
+    image: 'tomcat_custom_imgv1'
+    ports:
+      - "10002:10080"
+    expose:
+      - "10002"
+    depends_on:
+      - tomcatcluster1
+  tomcatcluster3:
+    container_name: tomcatcluster3
+    image: 'tomcat_custom_imgv1'
+    ports:
+      - "10003:10080"
+    expose:
+      - "10003"
+    depends_on:
+      - tomcatcluster2
