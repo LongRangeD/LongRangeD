@@ -10,6 +10,7 @@ Elastic_stop_script: elk_shutdown.sh
 Elastic_Startup_log: /tmp/Beats_Startup.log
 Filebeat_configuration_file: filebeat.yml
 Filebeat_location: /apps/elastic/filebeat/
+Metricbeat_location: /apps/elastic/metricbeat/
 Kibana_Host: 192.168.1.10
 Kibana_Port: 5601
 Elasticsearch_Host: 192.168.1.10
