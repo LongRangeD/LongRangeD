@@ -9,6 +9,7 @@ Elastic_start_script: elk_startup.sh
 Elastic_stop_script: elk_shutdown.sh
 Elastic_Startup_log: /tmp/Beats_Startup.log
 Filebeat_configuration_file: filebeat.yml
+Metricbeat_configuration_file: metricbeat.yml
 Filebeat_location: /apps/elastic/filebeat/
 Metricbeat_location: /apps/elastic/metricbeat/
 Kibana_Host: 192.168.1.10
