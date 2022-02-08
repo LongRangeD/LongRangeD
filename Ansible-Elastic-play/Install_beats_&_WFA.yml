@@ -15,29 +15,3 @@
   roles:
     - Start_Beats_Agent_roles
     
-# - hosts: app
-#   become: true
-#   become_user: root
-#   gather_facts: false
-#   tasks:
-#     - include_role:
-#         name: Install_Beats_roles
-#         tasks_from: main.yml
-
-# - hosts: app
-#   become: true
-#   become_user: root
-#   gather_facts: false
-#   tasks:
-#     - include_role:
-#         name: Install_WFA_roles
-#         tasks_from: main.yml
-        
-# - hosts: app
-#   become: true
-#   become_user: "{{ Elastic_username }}"
-#   gather_facts: false
-#   tasks:
-#     - include_role:
-#         name: Start_Beats_Agent_roles
-#         tasks_from: main.yml
