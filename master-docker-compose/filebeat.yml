@@ -1,0 +1,22 @@
+filebeat.inputs:
+- paths:
+    - /apache-logs/access.log
+  tags:
+    - apache_access
+  input_type: log
+  document_type: apache_access
+  fields_under_root: true
+
+- paths:
+    - /apache-logs/error.log
+  tags:
+    - apache_error
+  input_type: log
+  document_type: apache_error
+  fields_under_root: true
+
+output.kafka:
+  hosts: ["192.168.1.7:9092"]
+  topic: 'log'
+
+filebeat.config.modules.path: ${path.config}/modules.d/*.yml
