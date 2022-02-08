@@ -27,16 +27,6 @@
       copy:
         src: "{{ Filebeat_configuration_file }}"
         dest: "{{ Filebeat_location }}/{{ Filebeat_configuration_file }}"
-    
-    - name: Test filebeat configuration and backend output. 
-      shell:
-      args:
-        cmd: ./filebeat test config ; ./filebeat test output ; 
-        chdir: "{{ Filebeat_location }}"
-        executable: /bin/bash
-      register: Filebeat_out
-
-    - debug: var=Filebeat_out['stdout_lines']
 
     - name: Change file ownership, group and permissions for Elastic Directory
       ansible.builtin.file:

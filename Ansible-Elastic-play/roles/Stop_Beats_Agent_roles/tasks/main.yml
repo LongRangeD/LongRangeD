@@ -1,0 +1,9 @@
+---
+
+    - name: Starting Filebeat and Metricbeat Agents.
+      shell: "{{ Elastic_home }}/{{ Elastic_stop_script }} > {{ Elastic_Startup_log }} ; cat {{ Elastic_Startup_log }} ; id"
+      args:
+        executable: /bin/bash
+      register: Elastic_out
+
+    - debug: var=Elastic_out['stdout_lines']

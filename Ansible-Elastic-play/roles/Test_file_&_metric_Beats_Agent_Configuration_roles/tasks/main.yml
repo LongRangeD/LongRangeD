@@ -1,0 +1,11 @@
+---
+
+    - name: Test filebeat configuration and backend output. 
+      shell:
+      args:
+        cmd: ./filebeat test config ; ./filebeat test output ; 
+        chdir: "{{ Filebeat_location }}"
+        executable: /bin/bash
+      register: Filebeat_out
+
+    - debug: var=Filebeat_out['stdout_lines']
