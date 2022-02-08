@@ -1,0 +1,10 @@
+---
+
+- hosts: app
+  become: true
+  become_user: "{{ Elastic_username }}"
+  gather_facts: false
+  tasks:
+    - include_role:
+        name: Stop_Beats_Agent_roles
+        tasks_from: main.yml
