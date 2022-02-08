@@ -1,0 +1,12 @@
+version: '3'
+services:
+  centosvm1:
+    image: centos:7
+    container_name: centosvm102
+    ports: 
+      - "80:80"
+  centosvm2:
+    image: centos:7
+    container_name: centosvm103
+    ports: 
+      - "81:80"

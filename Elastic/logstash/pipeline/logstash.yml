@@ -1,0 +1,14 @@
+input {
+            kafka {
+                                bootstrap_servers => "192.168.0.104:9092"
+                                            topics => "registered_user"
+                                                }
+                                            }
+
+                                            output {
+                                                       elasticsearch {
+                                                                     hosts => "192.168.0.104:9200"
+                                                                           index => "dataflow"
+                                                                                 workers => 1
+                                                                                     }
+                                                                                 }
