@@ -25,7 +25,7 @@
 
     - name: Copying Filebeat configuration.
       copy:
-        src: "{{ Filebeat_configuration_file }}"
+        src: "templates/filebeat.j2"
         dest: "{{ Filebeat_location }}/{{ Filebeat_configuration_file }}"
 
     - name: Change file ownership, group and permissions for Elastic Directory
