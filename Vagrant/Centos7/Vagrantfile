@@ -6,22 +6,22 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.provider :virtualbox do |v|
-	v.memory = 256
-	v.linked_clone = true
+	   v.memory = 256
+	   v.linked_clone = true
   end
 # AS 1
   config.vm.define "app1" do |app|
-	app.vm.hostname = "centos-app1.test"
-	app.vm.network :private_network, ip: "192.162.0.200"
+	  app.vm.hostname = "centos-app1.test"
+	  app.vm.network :private_network, ip: "192.162.0.200"
   end
 # AS 1
   config.vm.define "app2" do |app|
-	app.vm.hostname = "centos-app2.test"
-	app.vm.network :private_network, ip: "192.162.0.201"
+	  app.vm.hostname = "centos-app2.test"
+	  app.vm.network :private_network, ip: "192.162.0.201"
   end
 # AS 1
   config.vm.define "db" do |db|
-	db.vm.hostname = "centos-db.test"
-	db.vm.network :private_network, ip: "192.162.0.202"
+	  db.vm.hostname = "centos-db.test"
+	  db.vm.network :private_network, ip: "192.162.0.202"
   end
 end
