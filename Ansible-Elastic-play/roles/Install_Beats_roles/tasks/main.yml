@@ -28,9 +28,9 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
       with_items:
-        - src: "templates/filebeat.yaml"
+        - src: "templates/filebeat.yml"
           dest: "{{ Filebeat_location }}/{{ Filebeat_configuration_file }}"
-        - src: "templates/metricbeat.yaml"
+        - src: "templates/metricbeat.yml"
           dest: "{{ Metricbeat_location }}/{{ Metricbeat_configuration_file }}"  
 
     - name: Change file ownership, group and permissions for Elastic Directory
