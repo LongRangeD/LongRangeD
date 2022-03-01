@@ -1,5 +1,7 @@
 ---
 
+#Version 1.2
+
 - hosts: app
   become: true
   become_user: root
