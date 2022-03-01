@@ -1,6 +1,10 @@
 ---
 
+<<<<<<< HEAD
 #Version 1.2
+=======
+#Install filebeat and metricbeat
+>>>>>>> 8c9380f4f070c6425612893423e88415c32a0216
 
 - hosts: app
   become: true
