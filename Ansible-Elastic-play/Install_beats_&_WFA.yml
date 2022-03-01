@@ -1,6 +1,11 @@
 ---
 
+<<<<<<< HEAD
 #Version 1.2, Rollbacked to Original.
+=======
+#Version 1.3
+#new config added.
+>>>>>>> f53e64b24846458caf5a5dad6d7bda92ba1d7a91
 
 - hosts: app
   become: true
